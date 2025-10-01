@@ -1,0 +1,104 @@
+/* ---- 1. CONFIGURAÇÃO BASE E FONTES ---- */
+
+/* Define uma base mais fácil para unidades relativas (1rem = 10px) */
+html {
+  font-size: 62.5%; 
+}
+
+/* Carrega a fonte 'Plus Jakarta Sans' normal */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('../assets/fonts/static/PlusJakartaSans-Regular.ttf') format('truetype');
+  font-weight: 400; /* normal */
+  font-style: normal;
+}
+
+/* Carrega a fonte 'Plus Jakarta Sans' para negrito */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('../assets/fonts/static/PlusJakartaSans-Bold.ttf') format('truetype');
+  font-weight: 700; /* negrito*/
+  font-style: normal;
+}
+
+/* ---- ESTILOS GERAIS ---- */
+body {
+  font-family: 'Plus Jakarta Sans';
+  margin: 0;
+  background-color: #fff;
+}
+
+/* ---- ESTILO DO CABEÇALHO SUPERIOR ---- */
+.cabecalho-superior {
+  /* Efeito de container para criar as margens laterais */
+  max-width: 70%;
+  margin-left: auto;  /* Centraliza na página */
+  margin-right: auto; /* Centraliza na página */
+
+  /* Layout Flexbox */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Alinha tudo verticalmente ao centro */
+  
+  /* Estilos de fonte */
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  color: #333;
+
+  /* Espaçamento vertical para o header não ficar colado */
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+/* ---- ESTILOS DOS BLOCOS INTERNOS ---- */
+.temperatura, .cotacoes, .cotacao-item {
+  display: flex;
+  align-items: center;
+}
+
+.temperatura {
+  gap: 0.8rem;
+}
+
+.cotacoes {
+  gap: 2.4rem;
+}
+
+.cotacao-item {
+  gap: 0.5rem;
+}
+
+.cotacao-item span {
+  color: #666; /* Cor mais suave para o texto e a barra */
+}
+
+.cotacao-item img {
+  /* Unidade 'em' para a imagem escalar com o texto */
+  width: 0.8em;
+  height: 0.8em;
+}
+
+hr{
+    max-width: 70%;
+    border-color: #f7f3f3;
+}
+
+
+/* ---- LAYOUT RESPONSIVO PARA TELAS MENORES ---- */
+@media (max-width: 768px) {
+  .cabecalho-superior {
+    /* Empilha os itens verticalmente */
+    flex-direction: column;
+    /* Adiciona espaço entre os itens empilhados */
+    gap: 1.5rem;
+  }
+
+  .cotacoes {
+    /* Permite que as moedas quebrem a linha se não couberem */
+    flex-wrap: wrap;
+    /* Centraliza as moedas na tela */
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
