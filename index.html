@@ -1,49 +1,176 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notícia 24h</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    
-</head>
-<body>
-
-    <header class="cabecalho-superior">
-        <div class="data">
-            <span>24 de Maio, 2024</span>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <aside class="barra-lateral-esquerda">
+      <div class="caixa-icones">
+        <div class="bloco-ouvir">
+          <a href="#" class="icone-ouvir" aria-label="Ouvir a notícia">
+            <img src="./assets/img/play.svg" alt="Ícone de Play" />
+          </a>
+          <strong>Ouça</strong>
         </div>
 
-        <div class="temperatura">
-            <strong>28º</strong>
-            <span>23° Penedos-AL</span>
-        </div>
+        <hr />
 
-        <div class="cotacoes">
-            
-            <div class="cotacao-item">
+        <div class="icones-sociais">
+          <a href="#" aria-label="Facebook">
+            <img src="./assets/img/facebook.svg" alt="Facebook" />
+          </a>
+          <a href="#" aria-label="Instagram">
+            <img src="./assets/img/instagram.svg" alt="Instagram" />
+          </a>
+          <a href="#" aria-label="X">
+            <img src="./assets/img/x.svg" alt="X" />
+          </a>
+          <a href="#" aria-label="Whatsapp">
+            <img src="./assets/img/whatsapp.svg" alt="Whatsapp" />
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <aside class="barra-lateral-direita">
+      <a href="#" class="tema-flutuante" aria-label="Modo claro/escuro">
+        <img src="./assets/img/light.svg" alt="Luminosidade" />
+      </a>
+      <a href="#" class="seta-flutuante" aria-label="Voltar ao topo">
+        <img src="./assets/img/top.svg" alt="Voltar ao topo" />
+      </a>
+    </aside>
+
+    <div class="site-wrapper">
+      <header>
+        <div class="cabecalho-superior-wrapper">
+          <div class="container cabecalho-superior">
+            <div class="data">
+              <span>24 de Maio, 2024</span>
+            </div>
+
+            <div class="temperatura">
+              <strong>29º</strong>
+              <span>23° Penedo-AL</span>
+            </div>
+
+            <div class="cotacoes">
+              <div class="cotacao-item">
                 <span>Dólar |</span>
                 <strong>5,14</strong>
-                <img src="./assets/img/subiu.svg" alt="Seta para Cima indicando alta">
-            </div>
+                <img
+                  src="./assets/img/subiu.svg"
+                  alt="Seta para Cima indicando alta"
+                />
+              </div>
 
-            <div class="cotacao-item">
+              <div class="cotacao-item">
                 <span>Euro |</span>
                 <strong>5,58</strong>
-                <img src="./assets/img/subiu.svg" alt="Seta para Cima indicando alta">
-            </div>
+                <img
+                  src="./assets/img/subiu.svg"
+                  alt="Seta para Cima indicando alta"
+                />
+              </div>
 
-            <div class="cotacao-item">
+              <div class="cotacao-item">
                 <span>Peso |</span>
                 <strong>0,06</strong>
-                <img src="./assets/img/baixou.svg" alt="Seta para Baixo indicando baixa">
+                <img
+                  src="./assets/img/baixou.svg"
+                  alt="Seta para Baixo indicando baixa"
+                />
+              </div>
             </div>
-
+          </div>
         </div>
-    </header>
 
-    <hr>
+        <hr />
 
+        <div class="cabecalho-principal-wrapper">
+          <div class="container cabecalho-principal">
+            <div class="grupo-esquerda">
+              <img src="./assets/img/lupa.svg" alt="Ícone de busca" />
+              <span>Buscar</span>
+            </div>
+            <div class="grupo-centro">
+              <a href="/index.html" aria-label="Página Inicial">
+                <img
+                  src="./assets/img/logo-fundo-branco.svg"
+                  alt="Logo Notícia 24h"
+                />
+              </a>
+            </div>
+            <div class="grupo-direita">
+              <a href="#" aria-label="X">
+                <img src="./assets/img/x.svg" alt="X" />
+              </a>
+              <a href="#" aria-label="Facebook">
+                <img src="./assets/img/facebook.svg" alt="Facebook" />
+              </a>
+              <a href="#" aria-label="Instagram">
+                <img src="./assets/img/instagram.svg" alt="Instagram" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
 
-</body>
+      <main class="container">
+        <section class="secao-titulo-pagina">
+          <div class="breadcrumb">
+            <span>Home</span>
+            <span>/</span>
+            <div class="pagina-atual">
+              <img src="./assets/img/cinema.svg" alt="Ícone de Cinema" />
+              <strong>Cinema</strong>
+            </div>
+          </div>
+        </section>
+
+        <article class="conteudo-artigo">
+          <h1 class="titulo-artigo">
+            Tudo que sabemos sobre Coringa 2: elenco, data, trailer e mais
+          </h1>
+
+          <h2 class="subtitulo-artigo">
+            Filme estreia ainda em 2024 e promete dobrar a aposta na loucura do antecessor
+          </h2>
+
+          <div class="meta-info">
+            <div class="autor">
+              <img
+                src="./assets/img/autor.png"
+                alt="Foto do autor"
+                class="foto-autor"
+              />
+              <div class="info-texto">
+                <strong>Matheus Fiore &nbsp;</strong>
+                <time datetime="2024-05-24T10:00"
+                  >Publicado em 24 de Janeiro, 2024</time
+                >
+              </div>
+            </div>
+          </div>
+
+          <figure class="imagem-principal">
+            <img
+              src="./assets/img/foto.png"
+              alt="Descrição da imagem principal do artigo"
+            />
+            <figcaption>Em 'Coringa 2', Joaquin Phoenix e Lady Gaga | Foto: YouTube / Reprodução</figcaption>
+          </figure>
+        </article>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container">
+          <p>&copy; 2025 Notícia 24h. Todos os direitos reservados.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>

@@ -1,104 +1,411 @@
-/* ---- 1. CONFIGURAÇÃO BASE E FONTES ---- */
+/* ==========================================================================
+   1. CONFIGURAÇÃO BASE E FONTES
+   ========================================================================== */
 
-/* Define uma base mais fácil para unidades relativas (1rem = 10px) */
 html {
-  font-size: 62.5%; 
+  font-size: 62.5%;
 }
 
-/* Carrega a fonte 'Plus Jakarta Sans' normal */
 @font-face {
-  font-family: 'Plus Jakarta Sans';
-  src: url('../assets/fonts/static/PlusJakartaSans-Regular.ttf') format('truetype');
-  font-weight: 400; /* normal */
+  font-family: "Plus Jakarta Sans";
+  src: url("../assets/fonts/static/PlusJakartaSans-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
   font-style: normal;
 }
 
-/* Carrega a fonte 'Plus Jakarta Sans' para negrito */
 @font-face {
-  font-family: 'Plus Jakarta Sans';
-  src: url('../assets/fonts/static/PlusJakartaSans-Bold.ttf') format('truetype');
-  font-weight: 700; /* negrito*/
+  font-family: "Plus Jakarta Sans";
+  src: url("../assets/fonts/static/PlusJakartaSans-Bold.ttf") format("truetype");
+  font-weight: 700;
   font-style: normal;
 }
 
-/* ---- ESTILOS GERAIS ---- */
+/* ==========================================================================
+   2. LAYOUT PRINCIPAL E CONTAINER
+   ========================================================================== */
+
 body {
-  font-family: 'Plus Jakarta Sans';
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   margin: 0;
   background-color: #fff;
 }
 
-/* ---- ESTILO DO CABEÇALHO SUPERIOR ---- */
-.cabecalho-superior {
-  /* Efeito de container para criar as margens laterais */
-  max-width: 70%;
-  margin-left: auto;  /* Centraliza na página */
-  margin-right: auto; /* Centraliza na página */
-
-  /* Layout Flexbox */
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* Alinha tudo verticalmente ao centro */
-  
-  /* Estilos de fonte */
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.8rem;
-  color: #333;
-
-  /* Espaçamento vertical para o header não ficar colado */
-  padding-top: 1.2rem;
-  padding-bottom: 1.2rem;
+.site-wrapper {
+  padding-left: 8rem;
+  padding-right: 8rem;
+  box-sizing: border-box;
 }
 
-/* ---- ESTILOS DOS BLOCOS INTERNOS ---- */
-.temperatura, .cotacoes, .cotacao-item {
+.container {
+  width: 97%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   3. CABEÇALHO
+   ========================================================================== */
+
+.cabecalho-superior-wrapper {
+  padding: 1.5rem 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #333;
+}
+
+.cabecalho-superior {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.temperatura,
+.cotacoes,
+.cotacao-item {
   display: flex;
   align-items: center;
 }
-
 .temperatura {
-  gap: 0.8rem;
+  gap: 0.5rem;
 }
-
 .cotacoes {
   gap: 2.4rem;
+  flex-wrap: wrap;
+  margin-left: auto;
 }
-
 .cotacao-item {
   gap: 0.5rem;
 }
-
 .cotacao-item span {
-  color: #666; /* Cor mais suave para o texto e a barra */
+  color: #666;
 }
-
+.cotacao-item strong,
+.temperatura strong {
+  font-weight: 700;
+}
 .cotacao-item img {
-  /* Unidade 'em' para a imagem escalar com o texto */
   width: 0.8em;
   height: 0.8em;
 }
 
-hr{
-    max-width: 70%;
-    border-color: #f7f3f3;
+hr {
+  width: 97%;
+  border: 0;
+  border-top: 1px solid #f0f0f0;
 }
 
+.cabecalho-principal-wrapper {
+  padding: 3rem 0;
+}
 
-/* ---- LAYOUT RESPONSIVO PARA TELAS MENORES ---- */
-@media (max-width: 768px) {
-  .cabecalho-superior {
-    /* Empilha os itens verticalmente */
-    flex-direction: column;
-    /* Adiciona espaço entre os itens empilhados */
-    gap: 1.5rem;
+.cabecalho-principal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grupo-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  height: 2.4rem;
+  width: 8.8rem;
+  padding: 0.8rem 1.6rem;
+}
+
+.grupo-esquerda img {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.grupo-esquerda span {
+  font-weight: 500;
+  font-size: 1.4rem;
+  user-select: none;
+}
+
+.grupo-centro a {
+  display: block;
+}
+.grupo-centro img {
+  width: 21.6rem;
+  display: block;
+}
+
+.grupo-direita {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.grupo-direita a img {
+  width: 3.4rem;
+  display: block;
+}
+
+/* ==========================================================================
+   4. BARRAS LATERAIS FIXAS
+   ========================================================================== */
+
+.barra-lateral-esquerda,
+.barra-lateral-direita {
+  z-index: 1000;
+}
+
+.barra-lateral-esquerda {
+  position: fixed;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.caixa-icones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.bloco-ouvir {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icone-ouvir {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background-color: #ffffff;
+  border: 1px solid #e53e3e;
+  border-radius: 50%;
+}
+.icone-ouvir:hover {
+  background-color: #e53e3e;
+  border-color: #e53e3e;
+}
+.icone-ouvir img {
+  width: 2rem;
+  height: 2rem;
+  transition: filter 0.3s ease;
+}
+.bloco-ouvir strong {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+.caixa-icones hr {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 0;
+}
+.icones-sociais {
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.icones-sociais a img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.barra-lateral-direita {
+  position: fixed;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.seta-flutuante,
+.tema-flutuante {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.tema-flutuante {
+  background-color: #ffffff;
+}
+
+.seta-flutuante {
+  background-color: black;
+}
+
+.tema-flutuante img,
+.seta-flutuante img {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+/* ==========================================================================
+   5. CONTEÚDO PRINCIPAL
+   ========================================================================== */
+
+main.container {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.secao-titulo-pagina {
+  margin-bottom: 2.5rem; /* Espaço até o título do artigo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* --- Breadcrumb --- */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 1.6rem;
+  justify-content: center;
+}
+.breadcrumb span:first-child {
+  color: #666;
+}
+.breadcrumb span {
+  color: #ccc;
+}
+.breadcrumb .pagina-atual {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.breadcrumb .pagina-atual img {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.breadcrumb .pagina-atual strong {
+  font-weight: 700;
+  color: #000;
+}
+
+/* --- Artigo --- */
+.conteudo-artigo {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza todos os blocos do artigo */
+  text-align: center; /* Centraliza o texto dentro dos blocos */
+}
+
+.titulo-artigo {
+  font-size: 4.8rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 1.5rem 0; /* Margem inferior */
+  line-height: 1.1;
+  max-width: 20ch; /* Limita a largura para quebrar o texto */
+}
+
+.subtitulo-artigo {
+  font-size: 2.2rem;
+  font-style: normal;
+  font-weight: 400; /* Peso normal para subtítulo */
+  color: #555;
+  margin: 0 0 3rem 0; /* Margem inferior */
+  max-width: 50ch; /* Limita a largura para melhor legibilidade */
+  line-height: 1.4;
+}
+
+.meta-info {
+  margin-bottom: 3rem; /* Margem inferior */
+}
+
+.autor {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.foto-autor {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.info-texto {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  text-align: left; /* Alinha o texto do autor à esquerda */
+}
+.info-texto span {
+  color: #333;
+}
+.info-texto time {
+  color: #888;
+  font-size: 1.2rem;
+}
+
+.imagem-principal {
+  margin: 0;
+  width: 100%;
+}
+.imagem-principal img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 7px;
+}
+.imagem-principal figcaption {
+  font-size: 1.4rem; /* Aumenta um pouco a legenda */
+  color: #888;
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   6. RODAPÉ
+   ========================================================================== */
+.site-footer {
+  /* Adicione estilos para o rodapé se necessário */
+}
+
+/* ==========================================================================
+   7. LAYOUT RESPONSIVO
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .site-wrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
+  .barra-lateral-esquerda,
+  .barra-lateral-direita {
+    display: none;
+  }
+}
 
+@media (max-width: 768px) {
+  .cabecalho-superior,
+  .cabecalho-principal {
+    flex-direction: column;
+    gap: 2rem;
+  }
   .cotacoes {
-    /* Permite que as moedas quebrem a linha se não couberem */
-    flex-wrap: wrap;
-    /* Centraliza as moedas na tela */
     justify-content: center;
-    gap: 1.5rem;
+  }
+  .titulo-artigo {
+    font-size: 3.6rem; /* Diminui o título em telas pequenas */
+  }
+  .subtitulo-artigo {
+    font-size: 2rem;
   }
 }
