@@ -38,7 +38,7 @@ body {
 }
 
 .container {
-  width: 97%;
+  max-width: 86%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -90,7 +90,7 @@ body {
 }
 
 hr {
-  width: 97%;
+  width: 86%;
   border: 0;
   border-top: 1px solid #f0f0f0;
 }
@@ -178,7 +178,7 @@ hr {
 }
 
 .icone-ouvir {
-  display: grid;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 4rem;
@@ -265,21 +265,22 @@ main.container {
   padding-bottom: 4rem;
 }
 
+/* --- Seção de Título do Artigo --- */
 .secao-titulo-pagina {
-  margin-bottom: 2.5rem; /* Espaço até o título do artigo */
+  margin-bottom: 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-/* --- Breadcrumb --- */
 .breadcrumb {
   display: flex;
   align-items: center;
   gap: 1.2rem;
   font-size: 1.6rem;
   justify-content: center;
+  padding-bottom: 3rem;
 }
 .breadcrumb span:first-child {
   color: #666;
@@ -301,35 +302,37 @@ main.container {
   color: #000;
 }
 
-/* --- Artigo --- */
+/* --- Corpo do Artigo --- */
 .conteudo-artigo {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza todos os blocos do artigo */
-  text-align: center; /* Centraliza o texto dentro dos blocos */
+  align-items: center;
+  text-align: center;
 }
 
 .titulo-artigo {
   font-size: 4.8rem;
   font-weight: 700;
   color: #000;
-  margin: 0 0 1.5rem 0; /* Margem inferior */
+  margin: 0 0 1rem 0; /* AJUSTE: Margem inferior reduzida */
   line-height: 1.1;
-  max-width: 20ch; /* Limita a largura para quebrar o texto */
+  max-width: 20ch;
 }
 
 .subtitulo-artigo {
   font-size: 2.2rem;
   font-style: normal;
-  font-weight: 400; /* Peso normal para subtítulo */
+  font-weight: 400;
   color: #555;
-  margin: 0 0 3rem 0; /* Margem inferior */
-  max-width: 50ch; /* Limita a largura para melhor legibilidade */
+  margin: 0 0 3rem 0;
+  max-width: 50ch;
   line-height: 1.4;
 }
 
 .meta-info {
-  margin-bottom: 3rem; /* Margem inferior */
+  margin-bottom: 3rem;
+  display: flex; /* AJUSTE: Garante a centralização */
+  justify-content: center;
 }
 
 .autor {
@@ -346,10 +349,10 @@ main.container {
 .info-texto {
   font-size: 1.4rem;
   line-height: 1.5;
-  text-align: left; /* Alinha o texto do autor à esquerda */
+  text-align: left;
 }
-.info-texto span {
-  color: #333;
+.info-texto strong {
+  font-weight: 700;
 }
 .info-texto time {
   color: #888;
@@ -367,20 +370,371 @@ main.container {
   border-radius: 7px;
 }
 .imagem-principal figcaption {
-  font-size: 1.4rem; /* Aumenta um pouco a legenda */
+  font-size: 1.4rem;
   color: #888;
   margin-top: 1rem;
 }
 
 /* ==========================================================================
-   6. RODAPÉ
+   6. CORPO DO ARTIGO (LAYOUT DE DUAS COLUNAS)
    ========================================================================== */
-.site-footer {
-  /* Adicione estilos para o rodapé se necessário */
+
+.corpo-artigo-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4rem;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.corpo-texto {
+  text-align: left;
+  font-size: 2rem;
+  letter-spacing: 0;
+  color: #1c1c1c;
+  opacity: 1;
+  max-width: 70%;
+}
+
+.coluna-direita-artigo {
+  flex-basis: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* --- Widgets da Coluna Direita --- */
+.explore-widget {
+  background: #fdfdfd 0% 0% no-repeat padding-box;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  opacity: 1;
+}
+
+.explore-widget .widget-titulo {
+  text-align: left;
+  font-size: 5rem;
+  letter-spacing: -0.96px;
+  color: #e51d35;
+  text-transform: capitalize;
+  opacity: 1;
+  padding: 1.5rem;
+  line-height: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.tag {
+  background: #1c1c1c00 0% 0% no-repeat padding-box;
+  border: 1px solid #e51d35;
+  border-radius: 4px;
+  opacity: 1;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0px;
+  color: #1c1c1c;
+  opacity: 1;
+}
+
+.tag:hover {
+  background-color: #e53e3e;
+  border-color: #e53e3e;
+  color: #fff;
+}
+
+.newsletter-widget {
+  background-color: #e51d35;
+  padding: 2.5rem;
+  color: #fff;
+}
+
+.newsletter-widget .widget-titulo {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 2rem 0;
+}
+
+.newsletter-widget strong {
+  font-size: 1.8rem;
+  color: #fff;
+  margin: 0 0 2rem 0;
+}
+
+.newsletter-form input {
+  width: 100%;
+  padding: 1.2rem;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+}
+
+.newsletter-form button {
+  width: 100%;
+  padding: 1.2rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #e51d35;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.newsletter-form button:hover {
+  background-color: #c53030;
+}
+
+.publicidade-coluna img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Conteúdo Adicional no Corpo do Texto --- */
+.leia-mais-widget {
+  background: #fdfdfd 0% 0% no-repeat padding-box;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  opacity: 1;
+}
+
+.leia-mais-widget .widget-titulo {
+  text-align: left;
+  font-size: 5rem;
+  letter-spacing: -0.96px;
+  color: #1c1c1c;
+  text-transform: capitalize;
+  opacity: 1;
+  padding: 1.5rem;
+  line-height: 0;
+}
+
+.curiosidades-widget {
+  margin: 4rem 0;
+  padding: 1.5rem;
+}
+
+.curiosidades-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.curiosidade-coluna {
+  flex: 1;
+}
+
+.curiosidade-coluna h4 {
+  font-size: 1.1rem;
+  font-weight: 512;
+  color: #000;
+  padding-left: 0.5rem;
+  border-left: 4px solid #e53e3e;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.curiosidade-coluna p {
+  margin: 0;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  color: #333;
+}
+
+.curiosidade-coluna p strong {
+  font-weight: 700;
+}
+
+.bloco-texto-imagem {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.bloco-texto-imagem .texto-bloco {
+  flex-basis: 50%;
+  align-self: flex-start;
+}
+
+.bloco-texto-imagem p {
+  margin: 0;
+  text-align: left;
+  font-size: 2rem;
+  letter-spacing: 0;
+  color: #1c1c1c;
+  opacity: 1;
+}
+
+.bloco-texto-imagem figure {
+  margin: 0;
+  flex-basis: 50%;
+}
+
+.bloco-texto-imagem img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+.bloco-texto-imagem figcaption {
+  font-size: 1.2rem;
+  color: #888;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+/* --- Estilos para o Conteúdo Final do Artigo --- */
+
+/* Citação com Ícone */
+.citacao-com-icone {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 4rem 0;
+  border: none;
+  padding: 0;
+}
+
+.citacao-com-icone img {
+  width: 3rem;
+  height: auto;
+  opacity: 0.5;
+}
+
+.texto-citacao {
+  position: relative;
+  padding-left: 3rem;
+}
+
+.texto-citacao strong {
+  display: block;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 700;
+  color: #1c1c1c;
+  line-height: 1;
+  max-width: 75%;
+  margin-bottom: 1rem;
+}
+
+.texto-citacao cite {
+  font-size: 1.6rem;
+  font-style: normal;
+  color: #888;
+}
+
+.texto-citacao::before {
+  content: "";
+  position: absolute;
+  top: -3rem;
+  left: 0;
+  height: 5rem;
+  width: 6.25rem;
+  z-index: -1;
+
+  /* Empilha o gradiente sobre a imagem de aspas */
+  background-image: linear-gradient(to right, #ffffff00 0%, #ffffff 100%),
+    /* Gradiente: totalmente transparente para branco opaco */
+      url("../assets/img/aspas.svg"); /* Imagem de aspas */
+
+  background-size: contain;
+}
+
+/* Bloco de Destaque com Borda Vermelha */
+.bloco-destaque-vermelho {
+  padding: 1.5rem;
+  margin: 2rem 0;
+  max-width: 85%;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #e51d35;
+  border-radius: 6px;
+}
+
+.bloco-destaque-vermelho p {
+  text-align: left;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0px;
+  color: #1C1C1C;
+  line-height: 1;
+}
+
+/* Formulário de Avaliação */
+.form-avaliacao {
+  padding: 1.5rem;
+  margin: 2rem 0;
+  max-width: 70%;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #e51d35;
+  border-radius: 6px;
+}
+
+.form-avaliacao p {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: left;
+  margin: 0 0 2rem 0;
+  color: #E51D35;
+}
+
+.opcoes-avaliacao {
+  display: grid;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.opcoes-avaliacao label {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+
+.form-avaliacao button {
+  display: grid;
+  width: 95%;
+  margin: 0 auto; /* Centraliza o botão */
+  padding: 1.2rem;
+  border: 1px solid #E51D35;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.form-avaliacao button:hover {
+  background-color: #E51D35;
+  color: #ccc;
 }
 
 /* ==========================================================================
-   7. LAYOUT RESPONSIVO
+   7. RODAPÉ
+   ========================================================================== */
+
+.site-footer {
+}
+
+/* ==========================================================================
+   8. LAYOUT RESPONSIVO
    ========================================================================== */
 @media (max-width: 1200px) {
   .site-wrapper {
@@ -392,7 +746,11 @@ main.container {
     display: none;
   }
 }
-
+@media (max-width: 992px) {
+  .corpo-artigo-wrapper {
+    flex-direction: column;
+  }
+}
 @media (max-width: 768px) {
   .cabecalho-superior,
   .cabecalho-principal {
@@ -403,7 +761,7 @@ main.container {
     justify-content: center;
   }
   .titulo-artigo {
-    font-size: 3.6rem; /* Diminui o título em telas pequenas */
+    font-size: 3.6rem;
   }
   .subtitulo-artigo {
     font-size: 2rem;
